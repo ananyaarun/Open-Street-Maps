@@ -1,0 +1,57 @@
+{
+
+"type": "Feature",
+"properties": {
+"name": "Bangalore"
+},
+"geometry": {
+"coordinates": [
+-111.012321,
+35.012567
+],
+"type": "Point"
+}
+
+
+"type": "Feature",
+"properties": {
+"name": "Mysore"
+},
+"geometry": {
+"coordinates": [
+-11.012321,
+351.012567
+],
+"type": "Point" 
+}
+
+
+"type": "Feature",
+"properties": {
+"name": "Hyderabad"
+},
+"geometry": {
+"coordinates": [
+-191.012321,
+350.012567
+],
+"type": "Point" 
+}
+
+
+"type": "Feature",
+"properties": {
+"name": "Chennai"
+},
+"geometry": {
+"coordinates": [
+-79.012321,
+124.012567
+],
+"type": "Point" 
+}
+
+
+
+
+}

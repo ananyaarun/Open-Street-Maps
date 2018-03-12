@@ -1,0 +1,111 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "A",
+        "marker-color": "#0000ff",
+        "line": "blue"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.12911152370515,
+          38.79930767201779
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "B",
+        "marker-color": "#0000ff",
+        "line": "blue"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.16797018042666,
+          38.766521892689916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "C",
+        "marker-color": "#0000ff",
+        "line": "blue"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01586821694521,
+          38.885072355144786
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "D",
+        "marker-color": "#ff0000",
+        "line": "red"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01663895662587,
+          38.896090317663166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "E",
+        "marker-color": "#0000ff",
+        "line": "blue"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.00513941992737,
+          38.885062500925
+        ]
+      }
+    },
+    
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "F",
+        "marker-color": "#008000",
+        "line": "green"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01750520880347,
+          38.87646186689611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "G",
+        "marker-color": "#0000ff",
+        "line": "blue"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04404229438322,
+          38.85341638599062
+        ]
+      }
+    }
+  ]
+}

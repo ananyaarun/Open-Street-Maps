@@ -1,0 +1,108 @@
+------------------------------------------------------
+Install docker-ce direct from the repository. When I did a sudo apt-get install docker, I got a lot of issues with environment settings like DOCKER_HOST.
+
+Link:
+https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+$sudo apt-get update
+$sudo apt-get install     apt-transport-https     ca-certificates     curl     software-properties-common
+$curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$sudo apt-key fingerprint 0EBFCD88
+$sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+$sudo apt-get update
+$sudo apt-get install docker-ce
+
+$sudo docker run hello-world
+The hello world command will let us know if the installation went fine
+
+----------------------------------------------------------------
+
+We can setup permissions for the user to run docker commands:
+
+$sudo groupadd docker
+$sudo usermod -aG docker $USER
+
+Test this by running docker without sudo
+$docker run hello-world
+
+-----------------------------------------------------------------
+
+Install the server
+
+Link: https://github.com/openstreetmap/openstreetmap-website/blob/master/INSTALL.md
+
+$sudo apt-get install ruby2.3 libruby2.3 ruby2.3-dev \
+                     libmagickwand-dev libxml2-dev libxslt1-dev nodejs \
+                     apache2 apache2-dev build-essential git-core \
+                     postgresql postgresql-contrib libpq-dev postgresql-server-dev-all \
+                     libsasl2-dev imagemagick libffi-dev
+$sudo gem2.3 install bundler
+
+
+$git clone https://github.com/openstreetmap/openstreetmap-website.git
+  
+$cd openstreetmap-website
+$bundle install
+
+  
+$cp config/example.application.yml config/application.yml
+$cp config/example.database.yml config/database.yml
+
+$sudo -u postgres -i
+createuser -s <username>
+exit
+
+
+$bundle exec rake db:create
+$psql -d openstreetmap -c "CREATE EXTENSION btree_gist"
+
+$cd db/functions
+$make libpgosm.so
+$cd ../..
+
+$psql -d openstreetmap -c "CREATE FUNCTION maptile_for_point(int8, int8, int4) RETURNS int4 AS '`pwd`/db/functions/libpgosm', 'maptile_for_point' LANGUAGE C STRICT"
+
+$psql -d openstreetmap -c "CREATE FUNCTION tile_for_point(int4, int4) RETURNS int8 AS '`pwd`/db/functions/libpgosm', 'tile_for_point' LANGUAGE C STRICT"
+
+$psql -d openstreetmap -c "CREATE FUNCTION xid_to_int4(xid) RETURNS int4 AS '`pwd`/db/functions/libpgosm', 'xid_to_int4' LANGUAGE C STRICT"
+
+$bundle exec rake db:migrate
+  
+$bundle exec rails server
+  
+You can now view the site in your favorite web-browser at http://localhost:3000/
+
+
+------------------------------------------------------------------------------------------
+
+You can also download the vector files directly
+
+$git clone https://github.com/openmaptiles/openmaptiles.git
+
+$cd ./openmaptiles/
+$sudo apt-get install docker-compose
+
+$sudo apt-get install gawk
+$cd ./openmaptiles/
+$./quickstart.sh
+
+After tweaking the configuration files you can point your favorite web-browser at
+http://localhost:3000/ to see the maps
+
+----------------------------------------------------------------
+
+We can also set up a test environment by following the instructions at
+https://openmaptiles.org/docs/
+
+$docker run --rm -it -v $(pwd)/data -p 8080:80 klokantech/openmaptiles-server
+
+You can now download and configure the maps by pointing your favourite web-browser at http://localhost:8080/
+
+
+--------------------------------------------------------------------------------------
+
+
+

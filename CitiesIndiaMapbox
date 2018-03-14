@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show a layer of cities on a map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="menu"></nav>
+    <div id='map'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hbjQiLCJhIjoiY2plMXRxb2tlMmFoNjJ3bjhwMm42a2I2MiJ9.yazYLURpnSpYdMNFq8vDVQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 4,
+            center: [80, 20]
+        });
+        map.on('load', function () {
+            map.addLayer({
+                "id": "points",
+                "type": "symbol",
+                "source": {
+                    "type": "geojson",
+                    "data": {
+                        "type": "FeatureCollection",
+                        "features": [{
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [77.5946, 12.9716]
+                                },
+                                "properties": {
+                                    "name": "Bangalore",
+                                    "description": "<strong>Kempegowda International Airport</strong><p><a href=\"https://en.wikipedia.org/wiki/Kempegowda_International_Airport\" target=\"_blank\" title=\"Opens in a new window\">Link</a></p>",
+                                    "icon": "airport"
+                                }
+                            },
+                            {
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [88.3639, 22.5726]
+                                },
+                                "properties": {
+                                    "name": "Kolkata",
+                                    "description": "<strong>Port of Kolkata</strong><p><a href=\"https://en.wikipedia.org/wiki/Port_of_Kolkata\" target=\"_blank\" title=\"Opens in a new window\">Link</a></p>",
+                                    "icon": "harbor"
+                                }
+                            },
+                            {
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [72.8777, 19.0760]
+                                },
+                                "properties": {
+                                    "name": "Mumbai",
+                                    "description": "<strong>Mumbai Harbour</strong><p><a href=\"https://en.wikipedia.org/wiki/Mumbai_Harbour\" target=\"_blank\" title=\"Opens in a new window\">Link</a></p>",
+                                    "icon": "harbor"
+                                }
+                            },
+                            {
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [79.0882,
+                                        21.1458
+                                    ]
+                                },
+                                "properties": {
+                                    "name": "Nagpur",
+                                    "description": "<strong>Dr. Babasaheb Ambedkar International Airport</strong><p><a href=\"https://en.wikipedia.org/wiki/Dr._Babasaheb_Ambedkar_International_Airport\" target=\"_blank\" title=\"Opens in a new window\">Link</a></p>",
+                                    "icon": "airport"
+                                }
+                            },
+                            {
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [77.1025, 28.7041]
+                                },
+                                "properties": {
+                                    "name": "Delhi",
+                                    "description": "<strong>Indira Gandhi International Airport</strong><p><a href=\"https://en.wikipedia.org/wiki/Indira_Gandhi_International_Airport\" target=\"_blank\" title=\"Opens in a new window\">Link</a></p>",
+                                    "icon": "airport"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "layout": {
+
+
+                    "icon-image": "{icon}-15",
+                    "text-field": "{name}",
+                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    "text-offset": [0, 0.6],
+                    "text-anchor": "top"
+
+                }
+
+            });
+        });
+
+        var popup = new mapboxgl.Popup({
+                closeOnClick: false
+            })
+            .setLngLat([70, 24])
+            .setHTML('<h1>Geojson & pop-ups</h1>')
+            .addTo(map);
+
+        map.on('click', 'points', function (e) {
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var description = e.features[0].properties.description;
+
+            new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+        });
+
+        map.on('mouseenter', 'points', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        map.on('mouseleave', 'points', function () {
+            map.getCanvas().style.cursor = '';
+        });
+    </script>
+</body>
+
+</html>

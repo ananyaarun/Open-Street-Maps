@@ -31,3 +31,12 @@ As a part of contributing to OSM i have succesfully done the following:
    (grayscale or streets) and provides a select button to show or hide the layer of cities. With a single click, the user can make 
    the layer visible.
    https://ananyaarun.github.io/OSM3
+   
+## 5) Third map visualisation
+   I used Mapbox.js library to display a map with two layers - one showing urban areas and one showing ports. I implemted
+   displaying geojson data from an external public URL
+   https://ananyaarun.github.io/OSM4
+
+## 6) IDEAS
+   All the above contributions are building blocks used to create a configurable map. However this only a small part of the web
+   page. There are lots of other aspects we need to consider. Following are some of my ideas for the project

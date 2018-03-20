@@ -35,6 +35,6 @@ As a part of contributing to OSM i have succesfully done the following:
 ## 5) Third map visualisation
    I used Mapbox.js library to display a map with two layers - one showing urban areas and one showing ports. I implemted
    displaying geojson data from an external public URL
-   https://ananyaarun.github.io/OSM4
+   https://ananyaarun.github.io/OSM4 
 
 

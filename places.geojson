@@ -100,7 +100,7 @@
         "line": "blue"
       },
       "geometry": {
-        "type": "Point",
+        "type": "Point", 
         "coordinates": [
           -77.04404229438322,
           38.85341638599062

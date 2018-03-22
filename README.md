@@ -1,23 +1,23 @@
 # Humanitarian OpenStreetMap
 
 This repository contains my contributions to OpenStreetMap.
-As a part of contributing to OSM i have succesfully done the following:
-1) Create geojson points 
+As a part of contributing to HOTOSM I have succesfully done the following:
+1) Created geojson vector files
 2) Set up my own vector tile server using Docker
-3) extract OSM data
-4) visualise map 
+3) Extracted OSM data
+4) Visualised maps 
 
 ## The repository contains the following files:
 
 ## 1) Geojson files
-   places.geojson , dataset1.geojson and stationas.geojson
+   places.geojson , dataset1.geojson and stations.geojson
    These files contain Geojson points that can be incorporated to create a layer of points on a map.
    It was created with the help of MapboxGL.I learnt how map layers are specified via geojson files.
    
 ## 2) Docker 
    I started on the project by understanding how open street maps work end to end and also extracted OSM data for the map.
    I installed Docker and set up a map server locally.
-   Here are the step by step instructions i followed to achieve the same
+   Here are the step by step instructions I followed to achieve the same
    https://ananyaarun.github.io/Docker
    The folder openmaptiles contains all the tiles downloaded after the succesful installation.
    

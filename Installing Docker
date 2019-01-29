@@ -2,7 +2,6 @@
 Install docker-ce direct from the repository. When I did a sudo apt-get install docker, I got a lot of issues with environment settings like DOCKER_HOST.
 
 Link:
-
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 $sudo apt-get update
